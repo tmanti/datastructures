@@ -17,17 +17,17 @@ Evaluation grid: [self-evaluation/total/marker-evaluation]
 A3
 
 Q1 My string functions
-Q1.1 str_length()                         [0/3/*]
-Q1.2 word_count()                         [0/4/*]
-Q1.3 lower_case()                         [0/3/*]
-Q1.4 trim()                               [0/5/*]
+Q1.1 str_length()                         [3/3/*]
+Q1.2 word_count()                         [4/4/*]
+Q1.3 lower_case()                         [3/3/*]
+Q1.4 trim()                               [5/5/*]
 
 Q2 My word processor
-Q2.1 Data structures                      [0/4/*]
-Q2.2 process_word(()                      [0/6/*]
-Q2.3 save_to_file()                       [0/5/*]
+Q2.1 Data structures                      [4/4/*]
+Q2.2 process_word(()                      [6/6/*]
+Q2.3 save_to_file()                       [5/5/*]
 
-Total:                                    [0/30/*]
+Total:                                    [30/30/*]
 
 Copy and paste the console output of your public test in the following. This will help markers to evaluate your program if it fails the marking testing.  
 
