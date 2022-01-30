@@ -40,3 +40,14 @@ str_length(trim(str)):14
 
 Q2 output:
 
+word processing:done
+line count:2
+word count:10
+distinct word count:6
+this:2
+is:2
+the:2
+first:1
+test:2
+second:1
+saving result to file:done
