@@ -5,11 +5,11 @@ Project: 202001_CP264_Lab04
 file description:
     Course CP264, Lab-04: Structures, File I/O
 -----------------------------------------------
-Author:  Heider Ali/Rick Magnotta
-ID:      xxxxxxxxx
-Email:   heali@wlu.ca/rmagnotta@wlu.ca
+Author:  Thomas Ingram
+ID:      200188260
+Email:   ingr8826@mylaurier.ca
 Version:  2020-01-31
-Modified: 2022-01-28
+Modified: 2022-01-30
 -----------------------------------------------
 
 Marking Scheme (Total 6 Marks):
@@ -235,11 +235,11 @@ void write_text_inorder(char *p_text[],      // Array of pointers to lines of in
 	      for (int j=0; j < MAX_MSG_LNG; j++) msg[i][j] = cNUL;
 	// <*** your code here ***>
 
-	if(nlines == 0){
-		sprintf(msg[0], "%s", "There are no lines of text to print.");
-		report_message(msg, MSG_INFO);
+	if(nlines == 0){ // check if no lines of input
+		sprintf(msg[0], "%s", "There are no lines of text to print."); //add to msg
+		report_message(msg, MSG_INFO); //report msg using msg info
 	} else {
-		for(int i=0; i < nlines; i++){
+		for(int i=0; i < nlines; i++){//loop over all text lines and print
 			printf("%s\n", p_text[i]);
 		}
 	}
@@ -261,11 +261,11 @@ void write_text_reverse(char *p_text[],          // Array of pointers to lines o
 		  for (int j=0; j < MAX_MSG_LNG; j++) msg[i][j] = cNUL;
 	// <*** your code here ***>
 
-	if(nlines == 0){
-		sprintf(msg[0], "%s", "There are no lines of text to print.");
-		report_message(msg, MSG_INFO);
+	if(nlines == 0){ // if no lines of text
+		sprintf(msg[0], "%s", "There are no lines of text to print."); //add message to msg obj
+		report_message(msg, MSG_INFO); //report using msg
 	} else {
-		for(int i=nlines-1; i >= 0; i--){
+		for(int i=nlines-1; i >= 0; i--){//loop over in reverse and print reversed
 			printf("%s\n", p_text[i]);
 		}
 	}
@@ -306,7 +306,7 @@ static   char indent[]       = "       : ";
          break;
 
       case MSG_END:
-    	  printf("==> END: Program Terminated.\n       : Have a great day.");
+    	  printf("==> END: Program Terminated.\n       : Have a great day.");//print properly formatted output
     	  break;
 
       default:                                           // Always check for an "un-handled" msg_kind!
