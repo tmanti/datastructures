@@ -100,10 +100,10 @@ Penalties:
 char msg[MAX_MSG_NUM][MAX_MSG_LNG];   // Message buffer. Can hold MAX_MSG_NUM messages, each MAX_MSG_LNG chars long.
 
                                       // MESSAGE type or kind of message. (Enumerated Type)
-enum msg_kind_type{MSG_INFO,          //   Information.
+typedef enum msg_kind_type{MSG_INFO,          //   Information.
                    MSG_WARNING,       //   Warning.
                    MSG_ERROR,		  //   Error.
-				   MSG_END};
+				      MSG_END} MSGTYPE;
 
 //===== GLOBAL FUNCTION PROTOTYPES ==============================================================
 int  read_text         (char *p_text[],
@@ -147,7 +147,9 @@ FILE  *fp_in        = NULL;           // Input file pointer.
       if ( (nlines = read_text(p_text, fp_in)) >= 0 ) {
 
          write_text_inorder(p_text, nlines);                       // Call subprogram to print in order.
+         printf("\n");
          write_text_reverse(p_text, nlines);                       // Call subprogram to print in reverse order.
+         printf("\n");
 
 	  }else {                              // Handle excessive number of input lines. Indicated by "nlines = -1"
 		 sprintf(msg[0], "%s",     "Input file too large to process.");
