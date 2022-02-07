@@ -3,12 +3,18 @@
 #ifndef MYRECORD_H
 #define MYRECORD_H 
 
+#define MAX_NAME 20
+
 typedef struct {
-// your design 
+    char name[MAX_NAME];
+    float score;
 } RECORD;
 
 typedef struct {
-// your design
+    int count;
+    float mean;
+    float stddev;
+    float median;
 } STATS;
 
 char letter_grade(float score);
