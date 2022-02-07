@@ -127,4 +127,42 @@ Modified 02-04-2022
     return (n_printed);
  }
 
+void insert_name_list(sNAME_LIST *name_list,    // The linked list of names.
+                sNODE      *node     ){  // The node containing the name.
+	if(name_list != NULL){
+		int found = 0;
+      int cont = 1;
+		sNODE *curr = name_list->front;
+
+      //printf("NEW AREA \n");
+
+      if(curr != NULL){
+         while(!found && cont){
+            if(strcmp(curr->name.first_name, node->name.first_name) == 0 && strcmp(curr->name.last_name, node->name.last_name) == 0){
+               found = 1;
+            }
+            
+            if(curr->next == NULL){
+               cont = 0;
+            } else {
+               curr = curr->next;
+            }
+         }
+
+         if(found){
+            free(node);
+         } else {
+            curr->next = node;
+            name_list->rear = node;
+            name_list->count++;
+         }
+      } else {
+         name_list->front = node;
+         name_list->rear = node;
+         name_list->count++;
+      }
+	} else {
+		printf("please pass a valid name_list. either name_list does not exist or is undefined");
+	}
+}
 
