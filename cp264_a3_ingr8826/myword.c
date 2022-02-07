@@ -9,7 +9,7 @@ int process_word(char *infilename, WORDINFO *wip)
   const char delimiters[] = " .,;:!()&?-\n\t\r\"\'"; 
   // your implementation
   char line[MAX_LINE_LEN];
-  char *word_token = NULL; int j;
+  char *word_token = NULL; int j=0;
   FILE *fp = fopen(infilename, "r");
   while (fgets(line, MAX_LINE_LEN, fp) != NULL) { // traversing all lines
     wip->line_count++;
