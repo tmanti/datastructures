@@ -1,4 +1,11 @@
-// your signature
+/*
+--------------------------------------------------
+Project: CP264-a4q1
+File:    mysort.h, mysort.c headerfile
+Author:  Thomas Ingram
+Version: 2022-02-07
+--------------------------------------------------
+*/
 
 #ifndef MYSORT_H
 #define MYSORT_H 

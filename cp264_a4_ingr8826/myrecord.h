@@ -1,4 +1,11 @@
-// your program signature
+/*
+--------------------------------------------------
+Project: CP264-a4q2
+File:    myrecord.h, myrecord.c headerfile
+Author:  Thomas Ingram
+Version: 2022-02-07
+--------------------------------------------------
+*/
  
 #ifndef MYRECORD_H
 #define MYRECORD_H 

@@ -1,4 +1,11 @@
-// your program signature
+/*
+--------------------------------------------------
+Project: CP264-a4q2
+File:    myrecord.c, record util files
+Author:  Thomas Ingram
+Version: 2022-02-07
+--------------------------------------------------
+*/
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>

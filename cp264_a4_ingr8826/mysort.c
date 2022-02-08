@@ -1,5 +1,11 @@
-// your program signature
-
+/*
+--------------------------------------------------
+Project: CP264-a4q1
+File:    mysort.c, sort util files
+Author:  Thomas Ingram
+Version: 2022-02-07
+--------------------------------------------------
+*/
 
 #include "mysort.h"
 
