@@ -122,7 +122,7 @@ STATS report_data(RECORD dataset[], int n, char *filename) {
     quick_sort(vals, 0, count-1);
     float median;
     if(n%2 == 1){
-        median = vals[count/2]+1;
+        median = vals[count/2];
     } else {
         median = (vals[count/2-1]+vals[count/2])/2;
     }
