@@ -63,8 +63,8 @@ int delete(SLLIST *sllistp, char *name) {
         sllistp->start = ptr->next;
       } else {
         prev->next = ptr->next;
-        free(ptr);
       }
+      free(ptr);
       sllistp->length--;
       break; // action
     }
