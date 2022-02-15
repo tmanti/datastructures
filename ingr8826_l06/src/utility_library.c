@@ -180,22 +180,32 @@ register stack *p;              // Local stack scan pointer.
  static bool initialize = TRUE;           // Static local variable "initialize" is set to TRUE ONLY the first time this
                                           // routine is called.
 
-    if ( initialize ) {
-   	                                      // The global "call_pname" stack is not yet initialized, so let's do it now.
-       initialize = FALSE;                // Because the local variable "initialize" is "static", then this initialization
-                                          // step is performed ONLY the FIRST time that the "push(..)" routine is called, as desired!
+   if ( initialize ) {
+                                       // The global "call_pname" stack is not yet initialized, so let's do it now.
+      initialize = FALSE;                // Because the local variable "initialize" is "static", then this initialization
+                                       // step is performed ONLY the FIRST time that the "push(..)" routine is called, as desired!
 
-       p_bos = call_pname[0];                     // Bottom-of-Stack pointer ALWAYS points to First slot of stack.
-       p_tos = p_bos;                             // Top-of-Stack pointer is initially set to point to bottom-of-stack, also.
-                                                  // Thus the STACK EMPTY condition is identified by "t_tos = t_bos".
-                                                  // This means that the first stack position (call_pname[0]) is sacrificed
-                                                  // in favour of simplifying the logic, and holds no value.
-       p_mxs = call_pname[MAX_STACK_SZ -1];       // The p_mxs pointer always points to the "last/maximum" stack position.
-    }
+      p_bos = call_pname[0];                     // Bottom-of-Stack pointer ALWAYS points to First slot of stack.
+      p_tos = p_bos;                             // Top-of-Stack pointer is initially set to point to bottom-of-stack, also.
+                                                // Thus the STACK EMPTY condition is identified by "t_tos = t_bos".
+                                                // This means that the first stack position (call_pname[0]) is sacrificed
+                                                // in favour of simplifying the logic, and holds no value.
+      p_mxs = call_pname[MAX_STACK_SZ -1];       // The p_mxs pointer always points to the "last/maximum" stack position.
+   }
 
-    //<*** YOUR CODE HERE ***>
+   //<*** YOUR CODE HERE ***>
+   
+   //printf("%s\n", proc_name);
 
-    return;
+   p_tos+=STACK_VAL_LNG;
+   if(p_tos < p_mxs){
+      strcpy(p_tos, proc_name);
+   } else {
+      p_tos-=STACK_VAL_LNG;
+      printf("Overflow");
+   }
+
+   return;
  }
 
  void pop(void)
@@ -214,6 +224,16 @@ register stack *p;              // Local stack scan pointer.
  {
 
     //<*** YOUR CODE HERE ***>
+    //printf("%d %d\n", p_bos, p_tos);
+    for(int i = 0; i < STACK_VAL_LNG-2; i++){
+       *(&(*p_tos)+i) = cBLK;
+    }
+    *(&(*p_tos)+STACK_VAL_LNG-1) = cNUL;
+    p_tos-= STACK_VAL_LNG;
+    if(p_tos < p_bos){
+       p_tos = p_bos;
+       printf("Underflow");
+    }
 
     return;
  }

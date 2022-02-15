@@ -60,7 +60,7 @@ int delete(SLLIST *sllistp, char *name) {
     if (strcmp(ptr->data.name, name)==0){ // found the node
       found = 1;
       if(prev == NULL){
-        sllistp->start = NULL;
+        sllistp->start = ptr->next;
       } else {
         prev->next = ptr->next;
         free(ptr);
