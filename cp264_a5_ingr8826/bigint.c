@@ -77,6 +77,7 @@ BIGINT Fibonacci(int n) {
       temp = f1;
       f1 = f2;
       f2 = add(temp, f1);
+      clean(&temp);
     }
 
     return f2;
