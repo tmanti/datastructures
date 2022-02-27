@@ -1,0 +1,20 @@
+q3.exe : common.o queue.o stack.o expression.o expression_main.c
+	gcc common.o queue.o stack.o expression.o expression_main.c -o q3.exe
+
+common.o : common.c
+	gcc -c common.c
+
+queue.o : queue.c
+	gcc -c queue.c
+
+stack.o : stack.c
+	gcc -c stack.c	
+
+expression.o : expression.c
+	gcc -c expression.c
+
+run:
+	q3.exe
+
+clean :
+	rm q3.exe common.o queue.o stack.o expression.o
