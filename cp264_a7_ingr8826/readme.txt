@@ -92,3 +92,44 @@ D,1.0
 inorder:A B C D E G H
 
 Q3 output:
+---test data import---
+Ali,88.0
+Allison,67.7
+Bodnar,93.6
+Chabot,80.4
+Costa,45.1
+Dabu,74.4
+Eccles,77.8
+Giblett,59.1
+Hatch,66.5
+He,85.7
+Koreck,77.4
+Lamont,98.1
+Myrie,76.7
+Parr,92.5
+Pereira,80.3
+Peters,82.3
+Smith,60.1
+Suglio,85.7
+Sun,67.7
+Wang,98.1
+
+count:20
+mean:77.9
+stddev:13.5
+median:79.1
+
+---test record search---
+search(Smith):Smith 60
+
+---test adding data---
+search(Moore):Moore 92
+
+---test remove data---
+search(Wang):NULL
+
+---test report data---
+count:20
+mean:77.6
+stddev:13.1
+median:79.1

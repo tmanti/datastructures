@@ -13,12 +13,14 @@ void add_data(TREE *tree, char *name, float score) {
     int n = tree->count;
     tree->count += 1;
     float mean = tree->mean;
-    tree->mean = (1/(n+1))*(n*mean + score);
-    //printf("mean: %f(s), %f, %f, %f\n", score, tree->mean, (1/(n+1)), (n*mean + score));
-    //printf("%f\n", (1/(n+1)));
-    //printf("%f\n", (n*mean + score));
+    tree->mean = ((float)1/((float)n+(float)1))*((float)n*(float)mean + score);
+    /*printf("mean: %f(s), %f\n", score, tree->mean);
+    printf("%f\n", ((float)1/((float)n+(float)1)));
+    printf("%d:", n+1);
+    printf("%f\n", 1/(n+1));
+    printf("%f\n", (n*mean + score));*/
     float stddev = tree->stddev;
-    tree->stddev = sqrtf((1/(n+1))*(n*(stddev*stddev + mean*mean)+(score*score))-(tree->mean*tree->mean));
+    tree->stddev = sqrtf(((float)1/((float)n+(float)1))*((float)n*(stddev*stddev + mean*mean)+(score*score))-(tree->mean*tree->mean));
     //printf("stddev: %f\n", tree->stddev);
   }
 }
@@ -33,8 +35,8 @@ void remove_data(TREE *tree, char *name) {
     float mean = tree->mean;
     float stddev = tree->stddev;
     tree->count = count - 1;
-    tree->mean = (1/(tree->count))*(count*mean - score);
-    tree->stddev = sqrtf((1/(tree->count))*(count*(stddev*stddev + mean*mean) - (score*score))-(tree->mean*tree->mean));
+    tree->mean = ((float)1/(float)(tree->count))*((float)count*mean - score);
+    tree->stddev = sqrtf(((float)1/(float)(tree->count))*((float)count*(stddev*stddev + mean*mean) - (score*score))-(tree->mean*tree->mean));
   }
 }
 
