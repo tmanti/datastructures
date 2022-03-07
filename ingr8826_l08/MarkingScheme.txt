@@ -1,0 +1,116 @@
+
+Marking Scheme for: 202001_CP264_Lab08_AVLs (Total: 10 Marks)
+===========================================  ===============
+
+- Code for "avl_valid_aux" function........ = 6
+  (There are six(6) cases to check for,
+   one mark for each case.)
+   
+- Code for "avl_rotate_left" function...... = 2
+
+- Code for "avl_rotate_right" function..... = 2  
+                                             ---
+                                      Total  10
+                                        
+Penalties:
+=========
+- Hard-coding                                 = -1
+- Use of Break, Continue, Go To               = -1 (NOTE: Break allowed in "Switch" statement.)
+  (i.e. Spaghetti code)
+- Convoluted logic                            = -1
+- Multiple "return" from main/subprogram      = -1
+- ALL local subprogram variables MUST be
+  declared at the beginning of the subprogram = -1  (Only exception: "for (int i=0; ...)"
+  (not dispersed throughout subprogram body)
+- Project builds/compiles with WARNINGS!      = -1
+
+- NOTE:
+  ====
+    Your project MUST Build/Compile clean and MUST Execute, otherwise a mark of ZERO is given for the lab.
+
+=====================================================================================================
+=====================================================================================================
+
+Correct Output (Partial Output):
+===============
+------------------------------------------------------------------
+
+::::: Test avl_linked :::::
+===========================
+
+-------------------------------
+:::> Inserting
+
+Insert: [1]
+Valid : [1]
+1  
+Insert: [2]
+Valid : [1]
+1  2  
+Insert: [3]
+Valid : [1]
+2  1  3  
+Insert: [4]
+Valid : [1]
+2  1  3  4  
+Insert: [5]
+Valid : [1]
+2  1  4  3  5  
+Insert: [6]
+Valid : [1]
+4  2  1  3  5  6  
+Insert: [7]
+Valid : [1]
+4  2  1  3  6  5  7  
+Insert: [8]
+Valid : [1]
+4  2  1  3  6  5  7  8  
+Insert: [9]
+Valid : [1]
+4  2  1  3  6  5  8  7  9  
+Insert: [10]
+Valid : [1]
+4  2  1  3  8  6  5  7  9  10  
+Insert: [11]
+Valid : [1]
+4  2  1  3  8  6  5  7  10  9  11  
+Insert: [12]
+Valid : [1]
+8  4  2  1  3  6  5  7  10  9  11  12  
+Insert: [13]
+Valid : [1]
+8  4  2  1  3  6  5  7  10  9  12  11  13  
+Insert: [14]
+Valid : [1]
+8  4  2  1  3  6  5  7  12  10  9  11  13  14  
+Insert: [15]
+Valid : [1]
+8  4  2  1  3  6  5  7  12  10  9  11  14  13  15  
+
+-------------------------------
+Max:
+
+15
+-------------------------------
+:::> Retrieving:
+
+Retrieve:   1 - 1,   1
+Retrieve:   2 - 1,   2
+Retrieve:   3 - 1,   3
+Retrieve:   4 - 1,   4
+Retrieve:   5 - 1,   5
+Retrieve:   6 - 1,   6
+Retrieve:   7 - 1,   7
+Retrieve:   8 - 1,   8
+Retrieve:   9 - 1,   9
+Retrieve:  10 - 1,  10
+Retrieve:  11 - 1,  11
+Retrieve:  12 - 1,  12
+Retrieve:  13 - 1,  13
+Retrieve:  14 - 1,  14
+Retrieve:  15 - 1,  15
+Retrieve:  99 - 0,  15
+-------------------------------
+Done
+
+------------------------------------------------------------------
