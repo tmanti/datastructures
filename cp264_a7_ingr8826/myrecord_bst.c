@@ -7,11 +7,35 @@
 #include "myrecord_bst.h"
 
 void add_data(TREE *tree, char *name, float score) {
-// your implementation
+  // your implementation
+  if(search(tree->root, name) == NULL){
+    insert(&tree->root, name, score);
+    int n = tree->count;
+    tree->count += 1;
+    float mean = tree->mean;
+    tree->mean = (1/(n+1))*(n*mean + score);
+    //printf("mean: %f(s), %f, %f, %f\n", score, tree->mean, (1/(n+1)), (n*mean + score));
+    //printf("%f\n", (1/(n+1)));
+    //printf("%f\n", (n*mean + score));
+    float stddev = tree->stddev;
+    tree->stddev = sqrtf((1/(n+1))*(n*(stddev*stddev + mean*mean)+(score*score))-(tree->mean*tree->mean));
+    //printf("stddev: %f\n", tree->stddev);
+  }
 }
 
 void remove_data(TREE *tree, char *name) {
-// your implementation  
+// your implementation 
+  TNODE *p = search(tree->root, name);
+  if(p !=NULL){
+    float score = p->data.score;
+    delete(&(tree->root), name);
+    int count = tree->count;
+    float mean = tree->mean;
+    float stddev = tree->stddev;
+    tree->count = count - 1;
+    tree->mean = (1/(tree->count))*(count*mean - score);
+    tree->stddev = sqrtf((1/(tree->count))*(count*(stddev*stddev + mean*mean) - (score*score))-(tree->mean*tree->mean));
+  }
 }
 
 
