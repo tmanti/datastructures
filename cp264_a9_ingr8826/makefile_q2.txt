@@ -1,0 +1,24 @@
+q2.exe : common.o queue.o stack.o hash.o expression_symbol.o expression_symbol_main.c
+	gcc common.o queue.o stack.o hash.o expression_symbol.o expression_symbol_main.c -o q2.exe
+
+common.o : common.c
+	gcc -c common.c
+
+queue.o : common.o queue.c
+	gcc -c queue.c
+
+stack.o : common.o stack.c
+	gcc -c stack.c	
+
+hash.o : hash.c
+	gcc -c hash.c	
+	
+expression_symbol.o : expression_symbol.c
+	gcc -c expression_symbol.c
+
+run:
+	q2.exe
+
+clean :
+	rm q2.exe common.o queue.o stack.o hash.o expression_symbol.o
+
