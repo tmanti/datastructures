@@ -14,6 +14,21 @@ int get_priority(char op) {
     return -1;    
 }
 
+/*
+ * auxiliary function 
+*/
+int type(char c) {
+  if (c >= '0' &&  c <= '9' )
+     return 0;
+  else if (c == '/' || c == '*' || c == '%' || c == '+' || c == '-')
+    return 1;
+  else if (c == '(')
+    return 2;
+  else if ( c == ')')
+    return 3;  
+  else 
+    return 4;
+}
 
 QUEUE infix_to_postfix_symbol(char *infixstr,  HASHTABLE *ht) {
 // your implementation
@@ -24,7 +39,8 @@ QUEUE infix_to_postfix_symbol(char *infixstr,  HASHTABLE *ht) {
   int num = 0;
   char symbol[11] = {0}; // the above are data structures to implement the algorithm
   while(*p){
-    if ( *p == '-' && (p == infixstr || *(p-1) == '(') ) {// get the sign of an operand
+    if ( *p == '-' && (p == infixstr || *(p-1) == '(')) {// get the sign of an operand
+      //printf("SIGN FLIP\n");
       sign = -1;
     } else if (*p >= 'a' && *p <= 'z' || *p >= 'A' && *p <= 'Z'){
       char *sp = symbol;
@@ -38,6 +54,11 @@ QUEUE infix_to_postfix_symbol(char *infixstr,  HASHTABLE *ht) {
       *(sp+1) = '\0';
       HSNODE *node = search(ht, symbol);
       num = node->value;
+      //printf("GET:%d %s %d\n", sign, symbol, num);
+      enqueue(&queue, new_node(sign*num, 0));
+      sign = 1;
+    } else if(*p >= '0' && *p <= '9'){
+      num = *p-'0'; while ((*(p+1) >= '0' && *(p+1) <= '9')) { num = num*10 + *(p+1)-'0'; p++; }
       enqueue(&queue, new_node(sign*num, 0));
       sign = 1;
     } else if(*p == '('){
@@ -50,7 +71,7 @@ QUEUE infix_to_postfix_symbol(char *infixstr,  HASHTABLE *ht) {
         }
         n = pop(&stack);
       }
-    } else if(get_priority(*p) == 1){
+    } else if(type(*p) == 1){
       push(&stack, new_node(*p, 1));
     }
     p++;
@@ -78,6 +99,7 @@ int evaluate_postfix(QUEUE queue) {
   int type = 0;
   while (p) { // traversal the queue linked list
     type = p->type;
+    //printf("%d\n", p->data);
     if (type == 0) { // operant
       push(&stack, new_node(p->data, 0));
     }

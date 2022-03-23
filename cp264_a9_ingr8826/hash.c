@@ -53,15 +53,15 @@ int insert(HASHTABLE *ht, HSNODE *np) {
     HSNODE *p = ht->hna[i]; // get the linked list of the hash value
     int f = 0;
     if(p){
-        while(!f && p->next){
-            //printf("%s %d\n", p->key, i);
+        do{
             if(strcmp(p->key, np->key)==0){
+                //printf("%s %d\n", np->key, i);
                 f = 1;
-                p->value += np->value;
+                p->value = np->value;
             } else {
                 p=p->next;
             }
-        }
+        }while(!f && p);
         if(!f){
             p->next = np;
             ht->count++;

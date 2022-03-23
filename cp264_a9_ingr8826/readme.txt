@@ -56,7 +56,18 @@ count:10
 search(b):NULL
 
 Q2 output:
+Symbolic expressions:
+a=10
+b=8
+d=2
+c=(a+b)*(a-b)
+b=d*c
 
+Symbolic expression evaluation:
+d:2
+a:10
+b:72
+c:36
 
 Q3 output:
 
