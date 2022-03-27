@@ -23,15 +23,15 @@ Q1.3 insert()                             [3/3/*]
 Q1.4 delete()                             [3/3/*]
 
 Q2 Symbolic expression evaluation
-Q2.1 infix_to_postfix_symbol()            [0/6/*]
+Q2.1 infix_to_postfix_symbol()            [6/6/*]
 
 Q3 Binary heap
-Q3.1 new_heap(),find_index_data()         [0/3/*]
-Q3.2 insert()                             [0/3/*]
-Q3.3 extract_min()                        [0/3/*]
-Q3.4 change_key()                         [0/3/*]
+Q3.1 new_heap(),find_index_data()         [3/3/*]
+Q3.2 insert()                             [3/3/*]
+Q3.3 extract_min()                        [3/3/*]
+Q3.4 change_key()                         [3/3/*]
 
-Total:                                    [0/30/*]
+Total:                                    [30/30/*]
 
 Copy and paste the console output of your public test in the following. This will help markers to evaluate your program if it fails the marking testing.  
 
@@ -70,4 +70,32 @@ b:72
 c:36
 
 Q3 output:
+new heap:
+size:0
+capacity:4
+(index,key,data):
 
+heap after insertions:
+size:10
+capacity:16
+(index,key,data):(0,4,10) (1,5,9) (2,8,6) (3,7,7) (4,6,8) (5,12,2) (6,9,5) (7,13,1) (8,10,4) (9,11,3)
+
+(find_data_index(hp,6),key,data):(2,8,6)
+change_key(hp,2,2):0
+change_key(hp,2,2):(2,8,6)->(0,2,6)
+size:10
+capacity:16
+(index,key,data):(0,2,6) (1,5,9) (2,4,10) (3,7,7) (4,6,8) (5,12,2) (6,9,5) (7,13,1) (8,10,4) (9,11,3)
+
+(find_data_index(hp,6),key,data):(0,2,6)
+change_key(hp,0,8):2
+change_key(hp,0,8):(0,2,6)->(2,8,6)
+size:10
+capacity:16
+(index,key,data):(0,4,10) (1,5,9) (2,8,6) (3,7,7) (4,6,8) (5,12,2) (6,9,5) (7,13,1) (8,10,4) (9,11,3)
+
+call extract_min 8 times:(4 10) (5 9) (6 8) (7 7) (8 6) (9 5) (10 4) (11 3)
+heap after extract_min operations:
+size:2
+capacity:4
+(index,key,data):(0,12,2) (1,13,1)
