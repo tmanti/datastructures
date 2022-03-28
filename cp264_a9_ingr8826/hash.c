@@ -22,6 +22,7 @@ HSNODE *new_hashnode(char *key, int value) {
     strcpy(hn->key, key);
     hn->value = value;
     hn->next = NULL;
+    return hn;
 }
 
 HASHTABLE *new_hashtable(int size) {
@@ -52,16 +53,23 @@ int insert(HASHTABLE *ht, HSNODE *np) {
     int i = hash(np->key);
     HSNODE *p = ht->hna[i]; // get the linked list of the hash value
     int f = 0;
+    int cont = 1;
     if(p){
+        printf("a:%d\n", p == NULL);
         do{
+            printf("b:%d\n", p == NULL);
             if(strcmp(p->key, np->key)==0){
                 //printf("%s %d\n", np->key, i);
                 f = 1;
                 p->value = np->value;
             } else {
-                p=p->next;
+                if(p->next != NULL){
+                    p=p->next;
+                } else {
+                    cont = 0;
+                }
             }
-        }while(!f && p);
+        }while(!f && p && cont);
         if(!f){
             p->next = np;
             ht->count++;
