@@ -41,6 +41,7 @@ int main(){
   printf("\nmst weight:%d\n", weight_edgelist(t));
   clean_edgelist(&t);
 
+
   //compute SPT by Dijkstra's algorithm using min-heap
   printf("\nspt_dijkstra():");
   t = spt_dijkstra(g, 0);

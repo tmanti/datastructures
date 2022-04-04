@@ -22,17 +22,17 @@ Q1.2 add_edge_start(), add_edge_end()     [3/3/*]
 Q1.3 weight_edgelist()                    [3/3/*]
 
 Q2 Adjacency list graph data structure
-Q2.1 new_graph()                          [0/3/*]
-Q2.2 add_edge()                           [0/3/*]
-Q2.3 bf_traverse()                        [0/3/*]
-Q2.4 df_traverse()                        [0/3/*]
+Q2.1 new_graph()                          [3/3/*]
+Q2.2 add_edge()                           [3/3/*]
+Q2.3 bf_traverse()                        [3/3/*]
+Q2.4 df_traverse()                        [3/3/*]
 
 Q3 Graph algorithms
-Q3.1 mst_prim()                           [0/3/*]
-Q3.2 spt_dijkstra()                       [0/3/*]
-Q3.3 sp_dijkstra()                        [0/3/*]
+Q3.1 mst_prim()                           [3/3/*]
+Q3.2 spt_dijkstra()                       [3/3/*]
+Q3.3 sp_dijkstra()                        [3/3/*]
 
-Total:                                    [0/30/*]
+Total:                                    [30/30/*]
 
 Copy and paste the console output of your public test in the following. This will help markers to evaluate your program if it fails the marking testing.  
 
@@ -43,7 +43,39 @@ size:4
 weight:27
 
 Q2 output:
-
+display_graph():
+order:5
+size:12
+from:(to weight)
+0:(1 7) (2 3)
+1:(0 7) (2 4) (3 9) (4 11)
+2:(0 3) (1 4) (3 10)
+3:(2 10) (1 9)
+4:(1 11)
+display_bforder():0 1 2 3 4
+display_dforder():0 2 3 1 4
 
 Q3 output:
+display_graph(g):
+order:5
+size:12
+from:(to weight)
+0:(1 7) (2 3)
+1:(0 7) (2 4) (3 9) (4 11)
+2:(0 3) (1 4) (3 10)
+3:(2 10) (1 9)
+4:(1 11)
 
+mst_prim(g, 0):
+size:4
+(from to weight):(0 2 3) (0 1 4) (2 3 9) (1 4 11)
+mst weight:27
+
+spt_dijkstra():size:4
+(from to weight):(0 2 3) (0 1 7) (2 3 10) (1 4 11)
+spt weight:31
+
+sp_dijkstra(g 0 4):
+size:2
+(from to weight):(0 1 7) (1 4 11)
+sp length:18
