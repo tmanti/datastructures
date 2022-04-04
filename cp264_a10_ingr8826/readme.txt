@@ -1,6 +1,6 @@
-Name: ??? (sign by typing your name)
-ID: ???
-Email: ???
+Name: Thomas Ingram (sign by typing your name)
+ID: 200188260
+Email: ingr8826@mylaurier.ca
 WorkID: CP264-a10
 Statement: I claim that the enclosed submission is my individual work.
 
